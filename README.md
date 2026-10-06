@@ -44,7 +44,7 @@ I study computer science and physics at Notre Dame, class of 2029. I build syste
 I worked on EDAQ in close collaboration with colleagues across NASA. It is an analytics system now used by analysts at every NASA center: it answers plain-language questions over agency workforce data with grounded, cited results. I cut end-to-end latency by 41% and took the system through an independent security audit before rollout. Along the way I was flown from the Ames supercomputer to the Hubble control room at Goddard.
 
 <p>
-  <img src="assets/nasa-isaacman.jpg" width="32.5%" alt="Matus with NASA Administrator Jared Isaacman">
+  <img src="assets/nasa-administrator.jpg" width="32.5%" alt="Matus with NASA Administrator Jared Isaacman">
   <img src="assets/nasa-sign.jpg" width="32.5%" alt="Matus in front of the NASA sign at Headquarters">
   <img src="assets/nasa-cohort.jpg" width="32.5%" alt="The NASA Headquarters intern cohort on stage">
 </p>
