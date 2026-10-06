@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://matusvec.github.io">
-    <img src="assets/banner.svg" width="100%" alt="Matus Vecera. Computer science and physics at Notre Dame, class of 2029. I build systems that have to work in the real world.">
+    <img src="assets/banner.svg" width="100%" alt="Matus Vecera. Computer science and physics at Notre Dame, class of 2029. Gaussian splatting, reinforcement learning, C++ and low-level systems. The artwork is Mars drawn as a cloud of Gaussian splats.">
   </a>
 </p>
 
@@ -10,23 +10,24 @@
   <a href="mailto:mvecera@nd.edu"><img src="https://img.shields.io/badge/Email-mvecera%40nd.edu-f8fafc?style=for-the-badge&labelColor=0b1020" alt="Email: mvecera@nd.edu"></a>
 </p>
 
-I study computer science and physics at Notre Dame, class of 2029. I build systems that have to work in the real world: production software at NASA, neural networks that respect the physics of the problem, a flight simulator written from the GPU up, and an input driver that lets people run Linux with their face. Most of my time right now goes to machine learning, low-level systems, and C++.
+I study computer science and physics at Notre Dame, class of 2029. Most of my work right now is in three places: **3D Gaussian splatting** (I've rebuilt a patch of Mars from rover photos and whole rooms from a phone), **reinforcement learning**, and **C++ close to the hardware**. Before that I spent a summer building production software at NASA Headquarters.
 
 <p align="center">
-  <a href="#nasa-headquarters">NASA</a> ·
+  <a href="#nasa">NASA</a> ·
+  <a href="#gaussian-splatting">Gaussian splatting</a> ·
   <a href="#machine-learning">Machine learning</a> ·
-  <a href="#systems-graphics-and-low-level">Systems, graphics, and low-level</a> ·
+  <a href="#systems">Systems, graphics, and low-level</a> ·
   <a href="#hardware">Hardware</a> ·
   <a href="#more">More</a>
 </p>
 
 <table>
-  <tr><th colspan="4" align="left">Machine learning</th></tr>
+  <tr><th colspan="4" align="left">Gaussian splatting and machine learning</th></tr>
   <tr>
-    <td width="25%" valign="top"><a href="#volana"><img src="assets/volana-surface.jpg" width="100%" alt="Volana dashboard"></a><br><b><a href="#volana">Volana</a></b><br><sub>🥇 1st place, WildHacks 2026</sub><br><sub>Arbitrage-free neural volatility surface, built solo in 24 hours.</sub></td>
     <td width="25%" valign="top"><a href="#planetary-scene-studio"><img src="assets/planetary-concept.jpg" width="100%" alt="Planetary Scene Studio"></a><br><b><a href="#planetary-scene-studio">Planetary Scene Studio</a></b><br><sub>🥇 Winner, SpaceXAI track, MHacks 2026</sub><br><sub>Mars rebuilt from rover photos as a Gaussian splat you can plan a base on.</sub></td>
-    <td width="25%" valign="top"><a href="#sharks--minnows"><img src="assets/sharks-frame.jpg" width="100%" alt="Sharks and Minnows: minnows crossing the field while the shark chases the decoy"></a><br><b><a href="#sharks--minnows">Sharks &amp; Minnows</a></b><br><sub>Multi-agent reinforcement learning</sub><br><sub>A transformer policy that taught itself to use a decoy.</sub></td>
     <td width="25%" valign="top"><a href="#spatialmind"><img src="assets/spatialmind-scene.jpg" width="100%" alt="SpatialMind Gaussian splat scene"></a><br><b><a href="#spatialmind">SpatialMind</a></b><br><sub>🥈 2nd place, JacHacks 2026</sub><br><sub>Ask a 3D scene a question in plain language and it points to the answer.</sub></td>
+    <td width="25%" valign="top"><a href="#sharks--minnows"><img src="assets/sharks-frame.jpg" width="100%" alt="Sharks and Minnows: minnows crossing the field while the shark chases the decoy"></a><br><b><a href="#sharks--minnows">Sharks &amp; Minnows</a></b><br><sub>Multi-agent reinforcement learning</sub><br><sub>A transformer policy that taught itself to use a decoy.</sub></td>
+    <td width="25%" valign="top"><a href="#volana"><img src="assets/volana-surface.jpg" width="100%" alt="Volana dashboard"></a><br><b><a href="#volana">Volana</a></b><br><sub>🥇 1st place, WildHacks 2026</sub><br><sub>Arbitrage-free neural volatility surface, built solo in 24 hours.</sub></td>
   </tr>
   <tr><th colspan="4" align="left">Systems, graphics, and low-level</th></tr>
   <tr>
@@ -37,7 +38,8 @@ I study computer science and physics at Notre Dame, class of 2029. I build syste
   </tr>
 </table>
 
-## NASA Headquarters
+<a name="nasa"></a>
+<p align="center"><img src="assets/h-nasa.svg" width="100%" alt="NASA Headquarters"></p>
 
 **Summer 2026, Washington, DC**
 
@@ -49,31 +51,20 @@ I worked on EDAQ in close collaboration with colleagues across NASA. It is an an
   <img src="assets/nasa-cohort.jpg" width="32.5%" alt="The NASA Headquarters intern cohort on stage">
 </p>
 
-## Machine learning
+<a name="gaussian-splatting"></a>
+<p align="center"><img src="assets/h-splatting.svg" width="100%" alt="3D Gaussian splatting"></p>
 
-### Volana
+Two of my projects are built on 3D Gaussian splatting: turning ordinary photos into a scene made of millions of oriented, coloured Gaussians that renders in real time. In both, the Gaussians carry more than colour. Semantic features from CLIP and SAM are lifted onto them, so the scene can be searched, labelled, and edited in plain language.
 
-**🥇 1st place, Anthropic Claude track, WildHacks 2026 at Northwestern** · [Source](https://github.com/Matusvec/volpath)
-
-Draw where you think a stock is going and see what your option is worth at every point along the path, including the moment volatility crushes on earnings day. Built and presented alone in 24 hours against full teams.
-
-<p align="center">
-  <img src="assets/volana-dashboard.jpg" width="100%" alt="Volana dashboard: the learned 3D volatility surface on the left, a hand-drawn price path with an earnings line in the middle, and the option's profit and loss curve along that path">
-</p>
-
-- **A neural volatility surface.** A physics-informed network (four hidden layers of 128 units, about 50,000 parameters) learns implied volatility as a continuous function of strike and maturity from about 1,000 live SPY option quotes.
-- **No-arbitrage enforced in the loss.** The butterfly and calendar conditions are computed with `torch.autograd` and penalized during training. The final surface has zero butterfly and calendar violations.
-- **Measured against SABR,** the 30-year industry standard: 93% lower error across every fold.
-- **A scenario engine.** Every point on the drawn path is repriced with a sticky-moneyness vol lookup, a path-dependent vol regime, an earnings vol crush, and Black-Scholes, fast enough to update while you draw.
-- **A live data pipeline.** Quotes are pulled from the market, inverted to implied vol with Brent root-finding, and cleaned of outliers per expiry before training.
-
-`PyTorch` `autograd` `SciPy` `FastAPI` `Three.js`
-
-<p>
-  <img src="assets/volana-surface-fit.jpg" width="32.5%" alt="The fitted SPY implied volatility surface over strike and maturity, with 1,018 market quotes">
-  <img src="assets/volana-present.jpg" width="32.5%" alt="Presenting Volana solo in a lecture hall">
-  <img src="assets/volana-winner.jpg" width="32.5%" alt="Matus with an organizer after winning the track">
-</p>
+| | [Planetary Scene Studio](#planetary-scene-studio) | [SpatialMind](#spatialmind) |
+|:--|:--|:--|
+| **Scene** | Cheyava Falls, Jezero Crater, Mars | Real indoor rooms |
+| **Gaussians** | 972,047 | 5.2 million |
+| **Input** | 241 Perseverance rover photos | Phone capture |
+| **Camera poses** | JPL camera models and rover telemetry, no structure-from-motion | COLMAP |
+| **Training** | gsplat (MCMC) | 3D Gaussian Splatting with LangSplat |
+| **Semantics** | SegFormer terrain classes, SAM + CLIP text search | CLIP features at three scales from SAM masks |
+| **Result** | 🥇 Winner, SpaceXAI track, MHacks 2026 | 🥈 2nd place, Agentic AI track, JacHacks 2026 |
 
 ### Planetary Scene Studio
 
@@ -105,6 +96,29 @@ Plan a base on Mars or the Moon on the real ground, together. From orbit, the sh
   <img src="assets/planetary-moon.jpg" width="32.5%" alt="Illumination map of Malapert Massif near the lunar south pole">
 </p>
 
+### SpatialMind
+
+**🥈 2nd place, Agentic AI track, JacHacks 2026 at Michigan** · [Source](https://github.com/Matusvec/spatialMind)
+
+Real rooms rebuilt as 5.2 million semantic Gaussians, then queried in plain language: ask for the chair by the window and the scene points to it. Built and presented against 70+ teams.
+
+<p>
+  <img src="assets/spatialmind-scene.jpg" width="32.5%" alt="Semantic Gaussian splat scene of a desk with monitors">
+  <img src="assets/spatialmind-recon.jpg" width="32.5%" alt="A 5.2 million Gaussian reconstruction of a person sitting on a couch">
+  <img src="assets/spatialmind-present.jpg" width="32.5%" alt="Presenting the SpatialMind pipeline in a lecture hall">
+</p>
+
+- **Reconstruction.** Scenes are captured on a phone, posed with COLMAP, and trained as 3D Gaussian splats.
+- **Semantics on every Gaussian.** LangSplat embeds CLIP features at three scales from SAM masks: whole objects, parts, and fine subparts.
+- **The query pipeline.** Text becomes a 512-d CLIP vector, is scored against every Gaussian with LERF-style relevancy, and DBSCAN groups the hits into object instances that light up in the 3D viewport.
+- **Edit and explore.** "Turn the couch blue" recolors the Gaussians live. An exploration walker catalogs objects and builds a spatial knowledge graph (left of, above, behind, near).
+- **An agent on top.** Questions like "what furniture is near the window?" route to a tool-calling agent that composes several scene lookups.
+
+`PyTorch` `OpenCLIP` `SAM` `COLMAP` `LangSplat` `FastAPI` `React` `Three.js`
+
+<a name="machine-learning"></a>
+<p align="center"><img src="assets/h-ml.svg" width="100%" alt="Machine learning"></p>
+
 ### Sharks & Minnows
 
 **Multi-agent reinforcement learning** · [Source](https://github.com/Matusvec/sharks-and-minnows-rl)
@@ -128,27 +142,32 @@ One policy controls a team of ten minnows that have to cross a field past a shar
   <img src="assets/sharks-training.jpg" width="49%" alt="Training curves: average minnows saved, survival by speed, actor loss, and critic losses per PPO update">
 </p>
 
-### SpatialMind
+### Volana
 
-**🥈 2nd place, Agentic AI track, JacHacks 2026 at Michigan** · [Source](https://github.com/Matusvec/spatialMind)
+**🥇 1st place, Anthropic Claude track, WildHacks 2026 at Northwestern** · [Source](https://github.com/Matusvec/volpath)
 
-Real rooms rebuilt as 5.2 million semantic Gaussians, then queried in plain language: ask for the chair by the window and the scene points to it. Built and presented against 70+ teams.
+Draw where you think a stock is going and see what your option is worth at every point along the path, including the moment volatility crushes on earnings day. Built and presented alone in 24 hours against full teams.
 
-<p>
-  <img src="assets/spatialmind-scene.jpg" width="32.5%" alt="Semantic Gaussian splat scene of a desk with monitors">
-  <img src="assets/spatialmind-recon.jpg" width="32.5%" alt="A 5.2 million Gaussian reconstruction of a person sitting on a couch">
-  <img src="assets/spatialmind-present.jpg" width="32.5%" alt="Presenting the SpatialMind pipeline in a lecture hall">
+<p align="center">
+  <img src="assets/volana-dashboard.jpg" width="100%" alt="Volana dashboard: the learned 3D volatility surface on the left, a hand-drawn price path with an earnings line in the middle, and the option's profit and loss curve along that path">
 </p>
 
-- **Reconstruction.** Scenes are captured on a phone, posed with COLMAP, and trained as 3D Gaussian splats.
-- **Semantics on every Gaussian.** LangSplat embeds CLIP features at three scales from SAM masks: whole objects, parts, and fine subparts.
-- **The query pipeline.** Text becomes a 512-d CLIP vector, is scored against every Gaussian with LERF-style relevancy, and DBSCAN groups the hits into object instances that light up in the 3D viewport.
-- **Edit and explore.** "Turn the couch blue" recolors the Gaussians live. An exploration walker catalogs objects and builds a spatial knowledge graph (left of, above, behind, near).
-- **An agent on top.** Questions like "what furniture is near the window?" route to a tool-calling agent that composes several scene lookups.
+- **A neural volatility surface.** A physics-informed network (four hidden layers of 128 units, about 50,000 parameters) learns implied volatility as a continuous function of strike and maturity from about 1,000 live SPY option quotes.
+- **No-arbitrage enforced in the loss.** The butterfly and calendar conditions are computed with `torch.autograd` and penalized during training. The final surface has zero butterfly and calendar violations.
+- **Measured against SABR,** the 30-year industry standard: 93% lower error across every fold.
+- **A scenario engine.** Every point on the drawn path is repriced with a sticky-moneyness vol lookup, a path-dependent vol regime, an earnings vol crush, and Black-Scholes, fast enough to update while you draw.
+- **A live data pipeline.** Quotes are pulled from the market, inverted to implied vol with Brent root-finding, and cleaned of outliers per expiry before training.
 
-`PyTorch` `OpenCLIP` `SAM` `COLMAP` `LangSplat` `FastAPI` `React` `Three.js`
+`PyTorch` `autograd` `SciPy` `FastAPI` `Three.js`
 
-## Systems, graphics, and low-level
+<p>
+  <img src="assets/volana-surface-fit.jpg" width="32.5%" alt="The fitted SPY implied volatility surface over strike and maturity, with 1,018 market quotes">
+  <img src="assets/volana-present.jpg" width="32.5%" alt="Presenting Volana solo in a lecture hall">
+  <img src="assets/volana-winner.jpg" width="32.5%" alt="Matus with an organizer after winning the track">
+</p>
+
+<a name="systems"></a>
+<p align="center"><img src="assets/h-systems.svg" width="100%" alt="Systems, graphics, and low-level"></p>
 
 ### vecEngine
 
@@ -213,7 +232,8 @@ A complete 8-bit CPU and a hardware divider designed from raw gates in Logisim: 
   <img src="assets/cpu-divider-controller.jpg" width="49%" alt="Controller logic for the hardware divider">
 </p>
 
-## Hardware
+<a name="hardware"></a>
+<p align="center"><img src="assets/h-hardware.svg" width="100%" alt="Hardware"></p>
 
 <p>
   <img src="assets/sentinel.jpg" width="32.5%" alt="Sentinel breadboard with Arduino, camera, and sensors">
@@ -231,7 +251,8 @@ A ~$150 Python and Arduino perception station. Vision models drive PID-controlle
 
 A SigmaDSP active crossover driving an amplifier stack and a subwoofer I built.
 
-## More
+<a name="more"></a>
+<p align="center"><img src="assets/h-more.svg" width="100%" alt="More"></p>
 
 - [Label Check](https://github.com/Matusvec/ttb-label-verifier): checks alcohol label images against their application data and sorts each one into approved, rejected, or needs review. [Live demo](https://ttb-label-verifier-two.vercel.app)
 - [aunalyticsNLSQL](https://github.com/Matusvec/aunalyticsNLSQL): turns plain-English questions into validated, read-only SQL, with a local LLM first and a cloud fallback.
