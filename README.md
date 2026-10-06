@@ -56,6 +56,11 @@ I worked on EDAQ in close collaboration with colleagues across NASA. It is an an
 
 Two of my projects are built on 3D Gaussian splatting: turning ordinary photos into a scene made of millions of oriented, coloured Gaussians that renders in real time. In both, the Gaussians carry more than colour. Semantic features from CLIP and SAM are lifted onto them, so the scene can be searched, labelled, and edited in plain language.
 
+<p align="center">
+  <img src="assets/planetary-splat-orbit.webp" width="100%" alt="Camera orbiting a Gaussian splat of Cheyava Falls on Mars: rocks and a light-toned outcrop in sharp detail, with the valley and horizon of the orbital terrain swinging into view behind it">
+  <br><sub>Captured live from my viewer: 972,047 Gaussians of Cheyava Falls, Mars, trained from Perseverance rover photos and placed on HiRISE orbital terrain.</sub>
+</p>
+
 | | [Planetary Scene Studio](#planetary-scene-studio) | [SpatialMind](#spatialmind) |
 |:--|:--|:--|
 | **Scene** | Cheyava Falls, Jezero Crater, Mars | Real indoor rooms |
@@ -87,12 +92,12 @@ Plan a base on Mars or the Moon on the real ground, together. From orbit, the sh
 
 <p>
   <img src="assets/planetary-orbit-vs-ground.jpg" width="32.5%" alt="The same 18 metre patch of Mars from orbit at half a metre per pixel and from the ground as a Gaussian splat">
+  <img src="assets/planetary-splat-3.jpg" width="32.5%" alt="Overview from about 26 metres: the sharp 18 metre splat disc sitting on the much blurrier orbital terrain">
   <img src="assets/planetary-rover.jpg" width="32.5%" alt="A six-wheel rover driving across the reconstructed Mars terrain">
-  <img src="assets/planetary-text-search.jpg" width="32.5%" alt="Text search for sand ripples highlighting matching Gaussians in blue">
 </p>
 <p>
-  <img src="assets/planetary-splat.jpg" width="32.5%" alt="Close view of the Gaussian splat of Cheyava Falls from rover eye height">
-  <img src="assets/planetary-terrain-class.jpg" width="32.5%" alt="Terrain class layer colouring the splat by soil, bedrock, sand, and big rock">
+  <img src="assets/planetary-text-search.jpg" width="32.5%" alt="Text search for sand ripples highlighting matching Gaussians in blue">
+  <img src="assets/planetary-layers.gif" width="32.5%" alt="One viewpoint cycling through per-Gaussian layers: photo colours, terrain class, roughness, and height above the orbital terrain">
   <img src="assets/planetary-moon.jpg" width="32.5%" alt="Illumination map of Malapert Massif near the lunar south pole">
 </p>
 
