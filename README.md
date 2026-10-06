@@ -16,6 +16,7 @@ I study computer science and physics at Notre Dame, class of 2029. I build syste
   <tr><td>🚀 <b>NASA Headquarters</b></td><td>Sole engineer on an analytics system used by analysts across every NASA center</td></tr>
   <tr><td>🥇 <b>1st place overall</b></td><td>Hesburgh Hackathon 2026, with <a href="#ember">Ember</a></td></tr>
   <tr><td>🥇 <b>1st place, Anthropic Claude track</b></td><td>WildHacks 2026 at Northwestern, with <a href="#volana">Volana</a>, built solo</td></tr>
+  <tr><td>🥇 <b>Winner, SpaceXAI track</b></td><td>MHacks 2026, with <a href="#planetary-scene-studio">Planetary Scene Studio</a></td></tr>
   <tr><td>🥈 <b>2nd place, Agentic AI track</b></td><td>JacHacks 2026 at Michigan, with <a href="#spatialmind">SpatialMind</a></td></tr>
   <tr><td>🏅 <b>Best Use of MongoDB</b></td><td>RocketHacks 2026, with <a href="#hardware">Sentinel</a></td></tr>
 </table>
@@ -74,7 +75,7 @@ A single-binary 3D engine and flight simulator on raw OpenGL, with no engine, sc
 
 ### Planetary Scene Studio
 
-**MHacks 2026, SpaceX challenge** · [Source](https://github.com/Matusvec/spaceX-Mhacks-Challenge) · [Live](https://planetary-scene-studio.vercel.app)
+**🥇 Winner, SpaceXAI track, MHacks 2026** · [Source](https://github.com/Matusvec/spaceX-Mhacks-Challenge) · [Live](https://planetary-scene-studio.vercel.app)
 
 Plan a base on Mars or the Moon on the real ground, together. A Gaussian splat of 972,047 Gaussians, trained from 241 Perseverance rover photos of Cheyava Falls in Jezero Crater, sits on 2 km of HiRISE orbital terrain in the same metric frame. A team can place habitats, drive a rover, and share concept renders in one live session. Built with two teammates.
 
