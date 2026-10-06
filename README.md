@@ -58,7 +58,7 @@ Two of my projects are built on 3D Gaussian splatting: turning ordinary photos i
 
 <p align="center">
   <img src="assets/planetary-splat-orbit.webp" width="100%" alt="Camera orbiting a Gaussian splat of Cheyava Falls on Mars: rocks and a light-toned outcrop in sharp detail, with the valley and horizon of the orbital terrain swinging into view behind it">
-  <br><sub>Captured live from my viewer: 972,047 Gaussians of Cheyava Falls, Mars, trained from Perseverance rover photos and placed on HiRISE orbital terrain.</sub>
+  <br><sub>Captured live from the viewer: 972,047 Gaussians of Cheyava Falls, Mars, trained from Perseverance rover photos and placed on HiRISE orbital terrain.</sub>
 </p>
 
 | | [Planetary Scene Studio](#planetary-scene-studio) | [SpatialMind](#spatialmind) |
